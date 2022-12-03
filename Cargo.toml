@@ -1,0 +1,22 @@
+[package]
+name = "xiao_rp2040_rs"
+version = "0.1.0"
+edition = "2021"
+description = "XIAO RP2040 RGB LED Blinking"
+authors = [
+    "tutoduino <tutoduino@gmx.fr>",
+    "Thomas POTIER <d34db4b3@protonmail.com>",
+]
+homepage = "https://tutoduino.fr/en/tutorials/programing-in-rust-the-xiao-rp2040-board/"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/rp-rs/rp-hal.git"
+
+[dependencies]
+cortex-m = "0.7.6"
+seeeduino-xiao-rp2040 = "0.2.0"
+panic-halt = "0.2.0"
+embedded-hal = "0.2.7"
+cortex-m-rt = "0.7"
+rp2040-boot2 = "0.2.0"
+ws2812-pio = "0.4.0"
+smart-leds = "0.3.0"
