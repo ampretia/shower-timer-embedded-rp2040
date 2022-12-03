@@ -112,7 +112,7 @@ fn main() -> ! {
         led_blue_pin.set_high().unwrap();
         led_red_pin.set_high().unwrap();
         led_green_pin.set_low().unwrap();
-        // Set RGB LED to red
+        // Set RGB LED to green
         ws.write([GREEN].iter().copied()).unwrap();
         delay.delay_ms(500);
 
