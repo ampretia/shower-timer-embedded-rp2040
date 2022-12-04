@@ -2,7 +2,7 @@
 //!
 //! https://tutoduino.fr/
 //!
-//! Blinks the LED on a Seeed Studio XIAO RP2040 board.
+//! Blinks the USER LED and NeoPixel RGB LED on a Seeed Studio XIAO RP2040 board.
 //!
 
 #![no_std]
@@ -16,13 +16,15 @@ use seeeduino_xiao_rp2040::entry;
 use seeeduino_xiao_rp2040::hal;
 use seeeduino_xiao_rp2040::hal::pac;
 use seeeduino_xiao_rp2040::hal::prelude::*;
-use smart_leds::{SmartLedsWrite, RGB8};
+use smart_leds::SmartLedsWrite;
+use smart_leds::RGB8;
 use ws2812_pio::Ws2812;
 
-const RED: RGB8 = RGB8::new(255, 0, 0);
-const GREEN: RGB8 = RGB8::new(0, 255, 0);
-const BLUE: RGB8 = RGB8::new(0, 0, 255);
-const WHITE: RGB8 = RGB8::new(255, 255, 255);
+const LUMINOSITY: u8 = 10;
+const RED: RGB8 = RGB8::new(LUMINOSITY, 0, 0);
+const GREEN: RGB8 = RGB8::new(0, LUMINOSITY, 0);
+const BLUE: RGB8 = RGB8::new(0, 0, LUMINOSITY);
+const WHITE: RGB8 = RGB8::new(LUMINOSITY / 3, LUMINOSITY / 3, LUMINOSITY / 3);
 
 /// Entry point to our bare-metal application.
 ///
@@ -39,6 +41,7 @@ fn main() -> ! {
 
     // Set up the watchdog driver - needed by the clock setup code
     let mut watchdog = hal::Watchdog::new(pac.WATCHDOG);
+
     // Configure the clocks
     //
     // The default is to generate a 125 MHz system clock from 12 Mhz crystal
@@ -82,7 +85,7 @@ fn main() -> ! {
         timer.count_down(),
     );
 
-    // Turn on Neopixel RGB LED
+    // Power on Neopixel RGB LED
     let mut neopixel_power = pins.neopixel_power.into_push_pull_output();
     neopixel_power.set_high().unwrap();
 
