@@ -1,15 +1,14 @@
 [package]
-name = "xiao_rp2040_rs"
+name = "shower_timer_xiao_rp2040_rs"
 version = "0.1.0"
-edition = "2021"
-description = "XIAO RP2040 RGB LED Blinking"
+edition = "2024"
+description = "Shower Timer with XIAO RP2040"
 authors = [
-    "Stephane POTIER <tutoduino@gmx.fr>",
-    "Thomas POTIER <d34db4b3@protonmail.com>",
+    "Matthew White <matthew@mh-white.com>"
 ]
-homepage = "https://tutoduino.fr/en/tutorials/programing-in-rust-the-xiao-rp2040-board/"
-license = "MIT OR Apache-2.0"
-repository = "https://github.com/rp-rs/rp-hal.git"
+homepage = "github.com/ampretia/shower-timer-embedded-rp2040"
+license = "Apache-2.0"
+repository = "github.com/ampretia/shower-timer-embedded-rp2040"
 
 [dependencies]
 cortex-m = "0.7.6"
